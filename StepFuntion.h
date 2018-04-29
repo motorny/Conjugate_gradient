@@ -8,14 +8,14 @@ private:
   int requestCnt = 0;
   Function &f;
   Vec xK;
-  Matrix mA;
+  Vec dir;
 public:
 
   StepFunction(Function & f_);
-  void SetStartVec(const Vec & v0, const Matrix & m_);
+  void SetStartVec(const Vec & v0, const Vec& dir_);
 
 
-  int GetRequestCnt()
+  int GetRequestCnt() const
   {
     return requestCnt;
   }
@@ -27,8 +27,7 @@ public:
 
   double getVal(double alpha)
   {
-////    return f.getVal(xK  - alfa *(mA * g.getVal(xK)));
-    return alpha;
+    return f.getVal(xK  + alpha * dir);
   }
 };
 

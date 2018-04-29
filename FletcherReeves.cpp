@@ -14,7 +14,6 @@ Vec FletcherReeves::Solve()
 {
   Vec vXk(x0);
   Vec vGrad = f.getGrad(vXk);
-
   Vec vSk = -1.0 * vGrad;
   double alphaK;
   double betaK = 0;

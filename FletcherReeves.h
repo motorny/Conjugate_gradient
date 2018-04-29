@@ -1,12 +1,12 @@
 #pragma once
 #include "Function.h"
 
-//#define LOG_XK_VEC
-//#define LOG_GRAD_NORM
-//#define LOG_ALPHA
+#define LOG_XK_VEC
+#define LOG_GRAD_NORM
+#define LOG_ALPHA
 //#define LOG_BETA
 //#define LOG_SK
-//#define LOG_ORTHOG
+#define LOG_ORTHOG
 #define LOG_UNCONVERGENCE
 
 class FletcherReeves

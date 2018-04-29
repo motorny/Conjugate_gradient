@@ -16,6 +16,8 @@ Vec ModFletcherReeves::Solve()
 {
   Vec vXk(x0);
   Vec vGrad = f.getGrad(vXk);
+  StepFunction stepF(f);
+  Fibonacce fibb(0.0, 1000, innerEps, stepF);
 
   while (vGrad.Norm() > gradEps)
   {
@@ -55,9 +57,14 @@ Vec ModFletcherReeves::Solve()
       vSk.Print("Sk Vector:");
 #endif // LOG_SK
 
-      alphaK = -1.0 * vGrad * vSk / (vSk * f.getHess(vXk) * vSk);
+
+      stepF.SetStartVec(vXk, vSk);
+      alphaK = fibb.Solve();
+      //alphaK = -1.0 * vGrad * vSk / (vSk * f.getHess(vXk) * vSk);
+
 #ifdef LOG_ALPHA
       cout << "Alpha: " << alphaK << endl;
+      cout << "Target Alpha: " << -1.0 * vGrad * vSk / (vSk * f.getHess(vXk) * vSk) << endl;
 #endif // LOG_ALPHA
 
 

@@ -3,11 +3,11 @@
 
 //#define LOG_XK_VEC
 //#define LOG_GRAD_NORM
-//#define LOG_ALPHA
+#define LOG_ALPHA
 //#define LOG_BETA
 //#define LOG_SK
 //#define LOG_ORTHOG
-#define LOG_TRANSITIONAL_XK
+//#define LOG_TRANSITIONAL_XK
 
 class ModFletcherReeves
 {
